@@ -14,8 +14,45 @@
     <c:forEach items="${products}" var="p">
         ${p.id} ${p.name} ${p.description} ${p.category} ${p.quantity}
         <br>
-
     </c:forEach>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Quantity</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <c:forEach items="${products}" var="p">
+            <tr>
+                <td>${p.id}</td>
+                <td>${p.name}</td>
+                <td>${p.price}</td>
+                <td>${p.description}</td>
+                <td>${p.category}</td>
+                <td>${p.quantity}</td>
+                <td>
+                    <form method="post" action="/delete-product">
+                        <input>
+                    </form>
+                </td>
+
+            </tr>
+
+
+        </c:forEach>
+
+
+        </tbody>
+
+    </table>
 
 </div>
 </body>

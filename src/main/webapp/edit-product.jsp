@@ -23,43 +23,34 @@
             <a class="nav-link" href="/add-product">Add product</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/users">Users</a>
+            <a class="nav-link" href="/register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/shopping-cart">Shopping Cart</a>
+            <a class="nav-link" href="/login">Login</a>
         </li>
-        <c:if test="${empty user}">
-            <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-        </c:if>
-        <c:if test="${not empty user}">
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-            </li>
-        </c:if>
     </ul>
 </nav>
 <div class="container">
-    <h1 align="center">Add product</h1>
-    <c:if test="${not empty error}">
-        <h3 style="color: red">Error while submitting form : ${error}</h3><br>
-    </c:if>
-    <form method="post" action="/add-product">
+    <h1 align="center">Edytuj produkt</h1>
+<%--    <c:if test="${not empty error}">--%>
+<%--        <h3 style="color: red">Error while submiting form : ${error}</h3><br>--%>
+<%--    </c:if>--%>
+    <form method="post" action="/edit-product">
+        <c: ${prodcut} var="pr">
+            <input type="hidden" name="id" value="${pr.id}">
+        </c:>
         <div class="form-group">
-            <label for="productName">Product:</label>
-            <input type="text" class="form-control" id="productName" placeholder="Enter product name" name="name">
+            <label for="name">Product:</label>
+            <input type="text" class="form-control" id="name" placeholder="" name="name">
         </div>
         <div class="form-group">
             <label for="price">Product price:</label>
-            <input type="number" class="form-control" id="price" placeholder="Enter price" name="price">
+            <input type="number" class="form-control" id="price" placeholder="" name="price">
         </div>
+<%--        </c:>--%>
         <div class="form-group">
             <label for="description">Description:</label>
-            <input type="text" class="form-control" id="description" placeholder="Enter description" name="description">
+            <input type="text" class="form-control" id="description" placeholder="" name="description">
         </div>
         <div class="form-group">
             <label for="category">category:</label>
@@ -72,9 +63,10 @@
         </div>
         <div class="form-group">
             <label for="quantity">Quantity:</label>
-            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity">
+            <input type="number" class="form-control" id="quantity" placeholder="" name="quantity">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
+
     </form>
 </div>
 </body>

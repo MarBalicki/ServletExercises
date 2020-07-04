@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>All products</title>
+    <title>Users</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -44,48 +44,27 @@
     </ul>
 </nav>
 <div class="container">
-    <%--    <c:forEach items="${products}" var="p">--%>
-    <%--        ${p.id} ${p.name} ${p.description} ${p.category} ${p.quantity}--%>
-    <%--        <br>--%>
-    <%--    </c:forEach>--%>
-        <form method="post" action="/filter-products">
-            <div class="form-group">
-                <label for="filter">Filter:</label>
-                <input type="text" class="form-control" id="filter" name="filter">
-            </div>
-        </form>
+
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Description</th>
-            <th scope="col">Category</th>
-            <th scope="col">Quantity</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Login</th>
+            <th scope="col">Password</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${products}" var="p">
+        <c:forEach items="${users}" var="u">
             <tr>
-                <td>${p.id}</td>
-                <td>${p.name}</td>
-                <td>${p.price}</td>
-                <td>${p.description}</td>
-                <td>${p.category}</td>
-                <td>${p.quantity}</td>
+                <td>${u.name}</td>
+                <td>${u.surname}</td>
+                <td>${u.login}</td>
+                <td>${u.password}</td>
                 <td>
-                    <form method="post" action="/product-to-edit">
-                        <input type="hidden" name="id" value="${p.id}">
-                        <input type="submit" value="Edit product"/>
-                    </form>
-                    <form method="post" action="/delete-product">
-                        <input type="hidden" name="id" value="${p.id}">
-                        <input type="submit" value="Delete product"/>
-                    </form>
-                    <form method="post" action="/add-to-cart">
-                        <input type="hidden" name="id" value="${p.id}">
-                        <input type="submit" value="Add product"/>
+                    <form method="post" action="/delete-user">
+                        <input type="hidden" name="login" value="${u.login}">
+                        <input type="submit" value="Delete user"/>
                     </form>
                 </td>
             </tr>

@@ -1,7 +1,7 @@
-package Servlets;
+package controller;
 
 import model.Product;
-import model.ProductService;
+import service.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

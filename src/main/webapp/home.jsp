@@ -2,8 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Register</title>
-    <meta charset="utf-8">
+    <title>Home page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -46,33 +45,6 @@
     </ul>
 </nav>
 <div class="container">
-    <h1 align="center">Register</h1>
-    <c:if test="${not empty error}">
-        <h3 style="color: red">Error while submitting form : ${error}</h3><br>
-    </c:if>
-    <form method="post" action="/register">
-        <div class="form-group">
-            <label for="name">User name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter user name" name="name">
-        </div>
-        <div class="form-group">
-            <label for="surname">User surname:</label>
-            <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname">
-        </div>
-        <div class="form-group">
-            <label for="login">Login:</label>
-            <input type="text" class="form-control" id="login" placeholder="Enter login" name="login">
-        </div>
-        <div class="form-group">
-            <label for="password">User password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-        </div>
-        <div class="form-group">
-            <label for="password2">Confirm user password:</label>
-            <input type="password" class="form-control" id="password2" placeholder="Confirm user password" name="password2">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
 </div>
 </body>
 </html>
